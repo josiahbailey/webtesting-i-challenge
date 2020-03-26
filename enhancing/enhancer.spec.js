@@ -24,8 +24,8 @@ const item3 = {
 
 describe('Enhancer', function () {
 
-  describe('succeed()', function () {
-    test('check to see if proper input produces expected output', function () {
+  describe('success()', function () {
+    test('check proper success use', function () {
       const output = {
         name: 'SwordOfDestruction',
         attack: 80,
@@ -52,7 +52,7 @@ describe('Enhancer', function () {
       expect(enhancer.success(item3)).toStrictEqual(output3)
     })
 
-    test('check to see if improper input throws error', function () {
+    test('check improper success use', function () {
       expect(() => enhancer.success({})).toThrow()
       expect(() => enhancer.success([])).toThrow()
       expect(() => enhancer.success('asodjosa')).toThrow()
@@ -63,7 +63,7 @@ describe('Enhancer', function () {
   })
 
   describe('fail()', function () {
-    test('check to see if proper input produces expected output', function () {
+    test('check proper fail use', function () {
       const output = {
         name: 'SwordOfDestruction',
         attack: 80,
@@ -90,11 +90,51 @@ describe('Enhancer', function () {
       expect(enhancer.fail(item3)).toStrictEqual(output3)
     })
 
-    test.todo('check to see if inproper input throws errors')
+    test('check improper fail use', function () {
+      expect(() => enhancer.fail({})).toThrow()
+      expect(() => enhancer.fail([])).toThrow()
+      expect(() => enhancer.fail('asodjosa')).toThrow()
+      expect(() => enhancer.fail(NaN)).toThrow()
+      expect(() => enhancer.fail(undefined)).toThrow()
+      expect(() => enhancer.fail(null)).toThrow()
+    })
   })
 
   describe('repair()', function () {
-    test.todo('check to see if proper input produces expected output')
-    test.todo('check to see if inproper input throws errors')
+    test('check proper repair use', function () {
+      const output = {
+        name: 'SwordOfDestruction',
+        attack: 80,
+        durability: 100,
+        enhancement: 5
+      }
+
+      const output2 = {
+        name: 'ShieldOfProtection',
+        defence: 120,
+        durability: 100,
+        enhancement: 0
+      }
+
+      const output3 = {
+        name: 'MaxSword',
+        attack: 10000,
+        durability: 100,
+        enhancement: 20
+      }
+
+      expect(enhancer.repair(item1)).toStrictEqual(output)
+      expect(enhancer.repair(item2)).toStrictEqual(output2)
+      expect(enhancer.repair(item3)).toStrictEqual(output3)
+    })
+
+    test('check improper repair use', function () {
+      expect(() => enhancer.repair({})).toThrow()
+      expect(() => enhancer.repair([])).toThrow()
+      expect(() => enhancer.repair('asodjosa')).toThrow()
+      expect(() => enhancer.repair(NaN)).toThrow()
+      expect(() => enhancer.repair(undefined)).toThrow()
+      expect(() => enhancer.repair(null)).toThrow()
+    })
   })
 })
