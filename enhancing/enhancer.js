@@ -6,15 +6,26 @@ module.exports = {
 };
 
 function succeed(item) {
-  return { ...item };
+  return {
+    ...item,
+    enhancement: item.enhancement + 1
+  };
 }
 
 function fail(item) {
-  return { ...item };
+  const penalty = item.enhancement > 15 ? 5 : 10
+  return {
+    ...item,
+    durability: item.durability - penalty,
+    enhancement: item.enhancement - 1
+  };
 }
 
 function repair(item) {
-  return { ...item };
+  return {
+    ...item,
+    durability: 100
+  };
 }
 
 function get(item) {
