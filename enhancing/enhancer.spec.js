@@ -17,14 +17,19 @@ const item2 = {
 
 describe('Enhancing', function () {
   describe('succeed()', function () {
-    test.todo('')
+    test('check to see if proper input produces expected output', function () {
+
+    })
+    test.todo('check to see if inproper input throws errors')
   })
 
   describe('fail()', function () {
-
+    test.todo('check to see if proper input produces expected output')
+    test.todo('check to see if inproper input throws errors')
   })
 })
 
 describe('repair()', function () {
-
+  test.todo('check to see if proper input produces expected output')
+  test.todo('check to see if inproper input throws errors')
 })
